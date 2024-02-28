@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tech Hub</title>
+        <link rel="icon" href="img/favicon.ico">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <section id="header">
+            <a href="shop.html"><img src="img/hero2.png" class="logo" alt=""></a>
+
+            <div>
+                <ul id="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a class="active" href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </section>
+        <br>
+        <br>
+        <section id="prodetails" class="section-p1">
+            <div class="single-pro-image">
+                <img src="img/products/Laptop/f5.png" width="100%" id="MainImg" alt="">
+    
+                <div class="small-img-group">
+                    <div class="small-img-col">
+                        <img src="img/products/Laptop/f5.png" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/products/Laptop/c1.png" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/products/Laptop/c2.png" width="100%" class="small-img" alt="">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/products/Laptop/c3.png" width="100%" class="small-img" alt="">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="single-pro-details">
+                <h6><a href="pagination.html" class="link-button">Back to Shop</a></h6>
+                <h4>Apple Macbook M2 Pro</h4>
+                <h2 id="productPrice">RM 5,199.00</h2>
+                <select id="sizeSelect" onchange="updatePrice()">
+                    <option value="5199.00">256GB | 12GB</option>
+                    <option value="6499.00">512GB | 12GB</option>
+                </select>
+                <input type="number" id="quantityInput" value="1" onchange="updatePrice()">
+                <a href="https://www.apple.com/my/shop/buy-mac/macbook-air/13-inch-m2" target="_blank">
+                    <button class="normal">Buy Now</button>
+                </a>
+                <a href="https://www.apple.com/my/macbook-air-13-and-15-m2/" target="_blank">
+                    <button class="normal" id="normal 2">Learn More</button>
+                </a>
+                <h4>Product Details</h4>
+                <span>The Apple MacBook Pro M2 Pro is a high-performance laptop designed for professionals and power users. It features a 14-inch 3.5K OLED display with a 120Hz refresh rate, delivering stunning visuals and vibrant colors. Powered by the Apple M2 Pro chip, it boasts a 10-core CPU (with 6 performance cores and 4 efficiency cores) and a 16-core GPU. With 16GB unified memory and a 512GB SSD, it ensures smooth multitasking and fast storage access. The laptop also includes features like the Touch Bar, Touch ID, and a studio-quality three-mic array. Whether you’re editing videos, designing graphics, or running resource-intensive applications, the MacBook Pro M2 Pro delivers exceptional performance</span>
+            </div>
+        </section>
+    
+        <script>
+            function updatePrice() {
+                var select = document.getElementById("sizeSelect");
+                var quantityInput = document.getElementById("quantityInput");
+                var quantity = parseInt(quantityInput.value);
+                var price = document.getElementById("productPrice");
+                var selectedPrice = parseFloat(select.options[select.selectedIndex].value);
+        
+                // Validate quantity
+                if (isNaN(quantity) || quantity < 1) {
+                    quantity = 1;
+                } else if (quantity > 10) {
+                    quantity = 10;
+                }
+        
+                // Update quantity input value
+                quantityInput.value = quantity;
+        
+                // Calculate total price
+                var totalPrice = selectedPrice * quantity;
+                price.innerText = "RM" + totalPrice.toFixed(2);
+            }
+        </script>
+
+        <!--This js is for single product image -->
+
+        <section id="newsletter" class="section-p1 section-m1">
+            <div class="newstext">
+                <h4>Give us your feedback</h4>
+                
+            </div>
+            <div class="form">
+                <input type="text" placeholder="Your email address">
+                <button class="normal">Sign Up</button>
+            </div>
+        </section>
+
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="img/hero2.png" alt="">
+                <h4>Contact</h4>
+                <p><strong>Address: </strong> 95-97, 99, Jln 1/149D, Bandar Baru Sri Petaling, 57000 Kuala Lumpur.</p>
+                <p><strong>Phone: </strong> +60 12-230 7246 / +60 16-345 6243</p>
+                <p><strong>Hours: </strong> 10:00 - 18:00, Mon - Sat</p>
+            </div>    
+            
+            <div class="copyright">
+                <p>© 2024, Tech Hub</p>
+            </div>
+        </footer>
+        
+        <script>
+            var MainImg = document.getElementById("MainImg");
+            var smallimg = document.getElementsByClassName("small-img");
+
+            smallimg[0].onclick = function() {
+                MainImg.src = smallimg[0].src;
+            }
+            smallimg[1].onclick = function() {
+                MainImg.src = smallimg[1].src;
+            }
+            smallimg[2].onclick = function() {
+                MainImg.src = smallimg[2].src;
+            }
+            smallimg[3].onclick = function() {
+                MainImg.src = smallimg[3].src;
+            }
+        </script>
+
+        <script src="script.js"></script>
+    </body>
+
+</html>
